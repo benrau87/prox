@@ -77,3 +77,10 @@ fi
 ##BEGIN MAIN SCRIPT##
 #Pre checks: These are a couple of basic sanity checks the script does before proceeding.
 ##Depos add
+wget http://download.proxmox.com/debian/proxmox-ve-release-5.x.gpg -O /etc/apt/trusted.gpg.d/proxmox-ve-release-5.x.gpg
+echo "deb http://download.proxmox.com/debian/pve stretch pve-no-subscription" | tee -a /etc/apt/sources.list
+
+# security updates
+echo " http://security.debian.org stretch/updates main contrib" | tee -a /etc/apt/sources.list
+
+
