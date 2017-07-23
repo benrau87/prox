@@ -83,4 +83,27 @@ echo "deb http://download.proxmox.com/debian/pve stretch pve-no-subscription" | 
 # security updates
 echo " http://security.debian.org stretch/updates main contrib" | tee -a /etc/apt/sources.list
 
+lsblk -o NAME,SIZE,FSTYPE,TYPE,MOUNTPOINT
+echo "How many drives are you using?"
+read count
+echo "What are their paths? eg.. /dev/sda /dev/sdb..."
+read disks
+echo "Creating array"
+mdadm --create --verbose /dev/md0 --level=5 --raid-devices=$count "$disks"
+tail -f /proc/mdstat
+
+#mkfs.ext4 -F /dev/md0
+#mount /dev/md0 /mnt/md0
+#df -h -x devtmpfs -x tmpfs
+#mdadm --detail --scan | sudo tee -a /etc/mdadm/mdadm.conf
+#update-initramfs -u
+#echo '/dev/md0 /mnt/md0 ext4 defaults,nofail,discard 0 0' | sudo tee -a /etc/fstab
+
+
+#
+
+
+
+
+
 
