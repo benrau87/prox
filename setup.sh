@@ -80,8 +80,8 @@ fi
 wget http://download.proxmox.com/debian/proxmox-ve-release-5.x.gpg -O /etc/apt/trusted.gpg.d/proxmox-ve-release-5.x.gpg
 echo "deb http://download.proxmox.com/debian/pve stretch pve-no-subscription" | tee -a /etc/apt/sources.list
 
-# security updates
-echo " http://security.debian.org stretch/updates main contrib" | tee -a /etc/apt/sources.list
+apt-get update && apt-get upgrade -y
+apt-get install mdadm git
 
 lsblk -o NAME,SIZE,FSTYPE,TYPE,MOUNTPOINT
 echo "How many drives are you using?"
