@@ -79,7 +79,8 @@ fi
 mdadm --manage --examine /dev/sdb
 echo "If there was a superblock, please delete then off all disks that are going to be used."
 echo "Run  mdadm --misc --zero-superblock /dev/sdb /dev/sdc.. for all disks."
-echo "Then de
+echo "Then delete metadata off each disk with dd if=/dev/zero of=/dev/sdN bs=1M count=100, run for 5 secs and CTRL-C"
+echo "Use fdisk to partition and set raid flag, fdisk /dev/sdN -> o, p, n, p, 1, t, fd, w"
 echo
 echo "How many drives are you using?"
 read count
