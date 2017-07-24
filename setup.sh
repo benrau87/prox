@@ -83,14 +83,6 @@ echo "deb http://download.proxmox.com/debian/pve stretch pve-no-subscription" | 
 apt-get update && apt-get upgrade -y
 apt-get install mdadm git
 
-lsblk -o NAME,SIZE,FSTYPE,TYPE,MOUNTPOINT
-echo "How many drives are you using?"
-read count
-echo "What are their paths? eg.. /dev/sda /dev/sdb..."
-read disks
-echo "Creating array"
-mdadm --create --verbose /dev/md0 --level=5 --raid-devices=$count "$disks"
-tail -f /proc/mdstat
 
 #mkfs.ext4 -F /dev/md0
 #mount /dev/md0 /mnt/md0
