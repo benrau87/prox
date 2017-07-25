@@ -80,22 +80,7 @@ fi
 wget http://download.proxmox.com/debian/proxmox-ve-release-5.x.gpg -O /etc/apt/trusted.gpg.d/proxmox-ve-release-5.x.gpg
 echo "deb http://download.proxmox.com/debian/pve stretch pve-no-subscription" | tee -a /etc/apt/sources.list
 
-apt-get update && apt-get upgrade -y
-apt-get install mdadm git
-
-
-#mkfs.ext4 -F /dev/md0
-#mount /dev/md0 /mnt/md0
-#df -h -x devtmpfs -x tmpfs
-#mdadm --detail --scan | sudo tee -a /etc/mdadm/mdadm.conf
-#update-initramfs -u
-#echo '/dev/md0 /mnt/md0 ext4 defaults,nofail,discard 0 0' | sudo tee -a /etc/fstab
-
-
-#
-
-
-
-
-
+apt-get update 
+apt-get upgrade -y
+apt-get install mdadm 
 
