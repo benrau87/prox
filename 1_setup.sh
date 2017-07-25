@@ -82,5 +82,5 @@ echo "deb http://download.proxmox.com/debian/pve stretch pve-no-subscription" | 
 
 apt-get update 
 apt-get upgrade -y
-apt-get install mdadm 
+apt-get install mdadm acpid -y
 
