@@ -84,3 +84,6 @@ apt-get update
 apt-get upgrade -y
 apt-get install mdadm acpid -y
 
+echo "options kvm-intel nested=Y" > /etc/modprobe.d/kvm-intel.conf
+modprobe -r kvm_intel
+modprobe kvm_intel
